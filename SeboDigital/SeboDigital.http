@@ -1,0 +1,6 @@
+@SeboDigital_HostAddress = http://localhost:5213
+
+GET {{SeboDigital_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
