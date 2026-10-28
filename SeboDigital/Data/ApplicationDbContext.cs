@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SeboDigital.Models;
 
 namespace SeboDigital.Data;
 
@@ -8,4 +9,6 @@ public class ApplicationDbContext : DbContext
         : base(options)
     {
     }
+
+    public DbSet<User> Users { get; set; }
 }
