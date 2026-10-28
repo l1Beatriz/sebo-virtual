@@ -8,7 +8,7 @@ using SeboDigital.Models;
 namespace SeboDigital.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("[controller]")]
 public class UserController : ControllerBase
 {
     private ApplicationDbContext _context;
@@ -19,15 +19,16 @@ public class UserController : ControllerBase
         _mapper = mapper;
     }
 
-    public IActionResult CreateUser(CreateUserDto userDto)
+    [HttpPost]
+    public IActionResult CreateUser([FromBody] CreateUserDto userDto)
     {
         var user = _mapper.Map<User>(userDto);
         _context.Users.Add(user);
         _context.SaveChanges();
-        var readUserDto = _mapper.Map<ReadUserDto>(user);
-        return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, readUserDto);
+        return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, userDto);
     }
 
+    [HttpGet("{id}")]
     public IActionResult GetUserById(int id)
     {
         var user = _context.Users.Find(id);

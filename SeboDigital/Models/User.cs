@@ -13,5 +13,5 @@ public class User
     [EmailAddress]
     public string Email { get; set; }
     [Required]
-    private string Password { get; set; }
+    public string Password { get; set; }
 }

@@ -10,6 +10,10 @@ var connectionString = builder.Configuration.GetConnectionString("Supabase");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
 
+builder.Services.AddAutoMapper(cfg => {
+    // without a license
+}, typeof(Program).Assembly);
+
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
