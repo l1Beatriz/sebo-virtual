@@ -14,4 +14,7 @@ public class Book
     public string Description { get; set; }
     public decimal Price { get; set; }
     public string Isbn { get; set; } = string.Empty;
+    [Required]
+    public int UserId { get; set; }
+    public virtual User User { get; set; }
 }
