@@ -15,4 +15,5 @@ public class User
     [Required]
     public string Password { get; set; }
     public virtual ICollection<Book> Books { get; set; }
+    public virtual ICollection<Evaluation> Evaluations { get; set; }
 }

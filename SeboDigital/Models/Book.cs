@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Globalization;
 
 namespace SeboDigital.Models;
 
@@ -14,7 +13,7 @@ public class Book
     public string Description { get; set; }
     public decimal Price { get; set; }
     public string Isbn { get; set; } = string.Empty;
-    [Required]
     public int UserId { get; set; }
     public virtual User User { get; set; }
+    public virtual ICollection<Evaluation> Evaluations { get; set; }
 }

@@ -10,4 +10,5 @@ public class CreateBookDto
     public string Description { get; set; } 
     public decimal Price { get; set; }
     public string Isbn { get; set; } = string.Empty;
+    public int UserId { get; set; }
 }
